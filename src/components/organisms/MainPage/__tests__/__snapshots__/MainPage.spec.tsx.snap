@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainPage /> renders correctly 1`] = `
+<div>
+  <div
+    class="css-p8m5bp"
+  >
+    <div
+      class="css-1k5s6ga"
+    >
+      <div
+        class="css-18ws1q3"
+      >
+        <h2
+          class="chakra-text css-0"
+        >
+          Woof Woof Gallery
+        </h2>
+        <h3
+          class="chakra-text css-o5g2qp"
+        >
+          Already know the bread?
+        </h3>
+        <h4
+          class="chakra-text css-0"
+        >
+          Search for it
+        </h4>
+        <div
+          class="chakra-input__group css-4302v8"
+        >
+          <input
+            class="chakra-input css-0"
+            placeholder="Germanshepherd.."
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="chakra-stack css-1tobaed"
+      >
+        <button
+          class="chakra-button css-omiz5g"
+          type="button"
+        >
+          testdoge
+        </button>
+      </div>
+    </div>
+    <h5
+      class="chakra-text css-6uhn4g"
+    >
+      Developed by
+       
+      <a
+        class="chakra-link css-1jk86wo"
+        href="https://github.com/kacperjagiela"
+      >
+        Kacper Jagieła
+      </a>
+       
+      for
+       
+      <a
+        class="chakra-link css-1jk86wo"
+        href="https://displate.com"
+      >
+        Displate
+      </a>
+    </h5>
+  </div>
+</div>
+`;
