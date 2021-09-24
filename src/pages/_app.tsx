@@ -33,7 +33,7 @@ const theme = extendTheme({
 
 const App = ({ Component, pageProps }: AppProps): ReactElement<Element, string> => {
     return (
-        <ChakraProvider resetCSS={false} theme={theme}>
+        <ChakraProvider theme={theme}>
             <Component {...pageProps} />;
         </ChakraProvider>
     );
