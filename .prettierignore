@@ -1,0 +1,13 @@
+.next
+.husky
+.git
+.storybook
+.node_modules
+tsconfig.json
+package.json
+yarn.lock
+next.config.js
+.prettierrc.js
+.eslintrc.js
+.babelrc
+README.md
