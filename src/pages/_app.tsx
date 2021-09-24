@@ -26,6 +26,11 @@ const theme = extendTheme({
             fontWeight: 'normal',
             lineHeight: ['32px', '32px'],
         },
+        h5: {
+            fontSize: ['14px', null, null, null, null, '16px'],
+            fontWeight: 'normal',
+            lineHeight: ['20px'],
+        },
     },
 });
 

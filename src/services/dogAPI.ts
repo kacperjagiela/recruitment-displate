@@ -21,3 +21,20 @@ export const fetchDefaultDogs = async (): Promise<Dog[]> => {
         return [];
     }
 };
+
+export const fetchDogImageByUrl = async (url: string): Promise<string> => {
+    try {
+        const response = await fetch(url);
+
+        if (response.status === 200) {
+            const responseBody = await response.json();
+            const imageUrl = responseBody.message;
+
+            return imageUrl;
+        } else {
+            return '';
+        }
+    } catch (error) {
+        return '';
+    }
+};

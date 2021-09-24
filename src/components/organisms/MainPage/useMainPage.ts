@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { debounce } from 'throttle-debounce';
 
+import { fetchDogImageByUrl } from '~/services/dogAPI';
 import Dog from '~/types/Dog';
 import { filterDogsByBread } from '~/utils/filterDogsByBread';
 
@@ -12,12 +13,17 @@ interface UseMainPage {
     searchValue: string;
     onSearch: (searchValue: string) => void;
     filteredDogs: Dog[];
+    currentImageSrc: string;
+    clearImage: () => void;
+    clearSearch: () => void;
+    fetchRandomDogImage: (url: string) => void;
 }
 
 const useMainPage = (dogs: Dog[]): UseMainPage => {
     const [currentDog, setCurrentDog] = useState({ name: '', url: '' });
     const [searchValue, setSearchValue] = useState('');
     const [isImageLoading, setIsImageLoading] = useState(true);
+    const [currentImageSrc, setCurrentImageSrc] = useState('');
 
     const [filteredDogs, setFilteredDogs] = useState(dogs);
 
@@ -29,10 +35,24 @@ const useMainPage = (dogs: Dog[]): UseMainPage => {
         }
     }, [searchValue]);
 
+    const fetchRandomDogImage = async (url: string) => {
+        setCurrentImageSrc('');
+        setIsImageLoading(true);
+
+        const imageUrl = (await fetchDogImageByUrl(url)) as string;
+
+        setCurrentImageSrc(imageUrl);
+    };
+
     const onDogButtonClick = (dog: Dog) => {
+        fetchRandomDogImage(dog.url);
         setIsImageLoading(true);
         setCurrentDog(dog);
     };
+
+    const clearImage = () => setCurrentImageSrc('');
+
+    const clearSearch = () => setSearchValue('');
 
     const filterDogsBySearchValue = debounce(350, (searchValue) => {
         const matchedDogs = dogs.filter((dog) => filterDogsByBread(searchValue, dog.name));
@@ -52,6 +72,10 @@ const useMainPage = (dogs: Dog[]): UseMainPage => {
         searchValue,
         onSearch,
         filteredDogs,
+        currentImageSrc,
+        clearImage,
+        clearSearch,
+        fetchRandomDogImage,
     };
 };
 
