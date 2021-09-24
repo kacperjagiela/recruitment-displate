@@ -3,7 +3,7 @@ import { debounce } from 'throttle-debounce';
 
 import { fetchDogImageByUrl } from '~/services/dogAPI';
 import Dog from '~/types/Dog';
-import { filterDogsByBread } from '~/utils/filterDogsByBread';
+import { filterDogsByBreed } from '~/utils/filterDogsByBreed';
 
 interface UseMainPage {
     currentDog: Dog;
@@ -55,7 +55,7 @@ const useMainPage = (dogs: Dog[]): UseMainPage => {
     const clearSearch = () => setSearchValue('');
 
     const filterDogsBySearchValue = debounce(350, (searchValue) => {
-        const matchedDogs = dogs.filter((dog) => filterDogsByBread(searchValue, dog.name));
+        const matchedDogs = dogs.filter((dog) => filterDogsByBreed(searchValue, dog.name));
 
         setFilteredDogs(matchedDogs);
     });

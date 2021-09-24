@@ -13,7 +13,7 @@ exports[`<Search /> renders correctly 1`] = `
     <h3
       class="chakra-text css-o5g2qp"
     >
-      Already know the bread?
+      Already know the breed?
     </h3>
     <h4
       class="chakra-text css-0"
@@ -61,7 +61,7 @@ exports[`<Search /> renders correctly with empty value 1`] = `
     <h3
       class="chakra-text css-o5g2qp"
     >
-      Already know the bread?
+      Already know the breed?
     </h3>
     <h4
       class="chakra-text css-0"

@@ -15,7 +15,7 @@ const Search: React.FC<Props> = ({ searchValue, onSearch, clearSearch }: Props) 
             Woof Woof Gallery
         </Text>
         <Text as="h3" textStyle="h3" py={2}>
-            Already know the bread?
+            Already know the breed?
         </Text>
         <Text as="h4" textStyle="h4">
             Search for it
