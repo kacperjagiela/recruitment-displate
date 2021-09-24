@@ -31,12 +31,16 @@
       "~/utils/*": [
         "utils/*"
       ],
-    }
+    },
+    "types": [
+      "@types/jest",
+      "@testing-library/jest-dom"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
     "node_modules"
