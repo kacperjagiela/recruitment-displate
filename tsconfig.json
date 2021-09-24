@@ -21,7 +21,16 @@
     "paths": {
       "~/components/*": [
         "components/*"
-      ]
+      ],
+      "~/services/*": [
+        "services/*"
+      ],
+      "~/types/*": [
+        "types/*"
+      ],
+      "~/utils/*": [
+        "utils/*"
+      ],
     }
   },
   "include": [
