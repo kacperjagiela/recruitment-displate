@@ -7,7 +7,7 @@ interface Props {
 }
 
 const DogButton: React.FC<Props> = ({ buttonText, onClick, variant }: Props) => (
-    <Button colorScheme="blue" onClick={onClick} textTransform="capitalize" variant={variant || 'solid'}>
+    <Button colorScheme="blue" onClick={onClick} textTransform="capitalize" textStyle="h4" variant={variant || 'solid'}>
         {buttonText}
     </Button>
 );

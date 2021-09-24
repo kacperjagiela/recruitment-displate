@@ -12,7 +12,7 @@ import {
 import { Stack } from '@chakra-ui/react';
 
 import { Button } from '~/components/atoms';
-import { DogsList } from '~/components/molecules';
+import { DogsList, Search } from '~/components/molecules';
 import Dog from '~/types/Dog';
 
 import useMainPage from './useMainPage';
@@ -23,16 +23,18 @@ interface Props {
 
 const MainPage: React.FC<Props> = ({ dogs }: Props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { currentDog, onDogButtonClick } = useMainPage();
+    const { currentDog, onDogButtonClick, isImageLoading, onImageLoad, searchValue, onSearch, filteredDogs } =
+        useMainPage(dogs);
 
     return (
-        <Box bg="blue.900" px={['10%', '20%']}>
-            <DogsList dogs={dogs} onModalOpen={onOpen} onDogButtonClick={onDogButtonClick} />
+        <Box bg="blue.900" px={['10%', '20%']} minH="100vh">
+            <Search searchValue={searchValue} onSearch={onSearch} />
+            <DogsList dogs={filteredDogs} onModalOpen={onOpen} onDogButtonClick={onDogButtonClick} />
 
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>{currentDog.name}</ModalHeader>
+                    <ModalHeader textTransform="capitalize">{currentDog.name}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>{currentDog.url}</ModalBody>
 

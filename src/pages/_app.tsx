@@ -15,13 +15,11 @@ const theme = extendTheme({
             fontSize: ['32px', '36px', '40px', '44px', '48px', '64px'],
             fontWeight: 'normal',
             lineHeight: ['40px', '48px', '56px', '64px', '72px'],
-            letterSpacing: '-0.05rem',
         },
         h3: {
             fontSize: ['24px', null, null, '30px', null, '36px'],
             fontWeight: 'normal',
             lineHeight: ['32px', '48px'],
-            letterSpacing: '-0.05rem',
         },
         h4: {
             fontSize: ['16px', null, null, null, null, '20px'],
@@ -34,7 +32,7 @@ const theme = extendTheme({
 const App = ({ Component, pageProps }: AppProps): ReactElement<Element, string> => {
     return (
         <ChakraProvider theme={theme}>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </ChakraProvider>
     );
 };
