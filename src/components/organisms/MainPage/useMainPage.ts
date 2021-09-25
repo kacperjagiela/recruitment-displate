@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useToast } from '@chakra-ui/toast';
 import { debounce } from 'throttle-debounce';
 
 import { fetchDogImageByUrl } from '~/services/dogAPI';
@@ -24,6 +25,7 @@ const useMainPage = (dogs: Dog[]): UseMainPage => {
     const [searchValue, setSearchValue] = useState('');
     const [isImageLoading, setIsImageLoading] = useState(true);
     const [currentImageSrc, setCurrentImageSrc] = useState('');
+    const toast = useToast();
 
     const [filteredDogs, setFilteredDogs] = useState(dogs);
 
@@ -34,6 +36,19 @@ const useMainPage = (dogs: Dog[]): UseMainPage => {
             setFilteredDogs(dogs);
         }
     }, [searchValue]);
+
+    useEffect(() => {
+        if (dogs.length === 0) {
+            toast({
+                position: 'top',
+                title: 'Error.',
+                description: 'Something went wrong, when connecting to API.',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            });
+        }
+    }, [dogs]);
 
     const fetchRandomDogImage = async (url: string) => {
         setCurrentImageSrc('');
